@@ -6,9 +6,6 @@
 #include <WebServer.h>
 #include <uri/UriBraces.h>
 
-#define WIFI_SSID "WIFI SSID"  // Your WIFI SSID
-#define WIFI_PASSWORD "WIFI PASSWORD"   // Your WIFI PASSWORD
-
 
 
 WebServer server(80);
