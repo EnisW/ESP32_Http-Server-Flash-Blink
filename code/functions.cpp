@@ -1,6 +1,5 @@
 #include "functions.h"
 
-WebServer server(80);
 
 void sendHtml() {
   String response = R"(
@@ -126,6 +125,8 @@ void connectWifi() {
 
   Serial.println("Connection IP Address ---->  " + WiFi.localIP().toString());
 
+  WebServer server(80);
+
   server.on("/", sendHtml);
   server.on("/submit", HTTP_POST, []() {
     int result = getNumbersAndCalculate();
@@ -159,8 +160,6 @@ int getNumbersAndCalculate() {
       
       
     }
-
-    
 
     int number1Int = number1String.toInt();
     int number2Int = number2String.toInt();
