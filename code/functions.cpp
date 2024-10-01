@@ -1,5 +1,6 @@
 #include "functions.h"
 
+WebServer server(80);
 
 void sendHtml() {
   String response = R"(
@@ -124,8 +125,6 @@ void connectWifi() {
   Serial.println("WiFi Successfully Connected !");
 
   Serial.println("Connection IP Address ---->  " + WiFi.localIP().toString());
-
-  WebServer server(80);
 
   server.on("/", sendHtml);
   server.on("/submit", HTTP_POST, []() {
